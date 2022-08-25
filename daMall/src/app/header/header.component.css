@@ -1,0 +1,43 @@
+.header{
+    background-color: blueviolet;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.row input{
+    padding:7px;
+    border: none;
+    border-radius: 5px;
+    width:25vw;
+}
+.header, .row{
+    display: flex;
+    
+}
+.header div, .row div{
+    padding:10px;
+    
+}
+.row2{
+    display:flex;
+    justify-content: center;
+    gap:20px;
+    margin-top: 2px;
+}
+.column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 3px;
+}
+.column a{
+    text-decoration: none;
+    cursor: pointer;
+    color: blue
+}
+.image{
+    width:20vh;
+    height:15vh;
+    border-radius: 10px;
+}

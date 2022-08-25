@@ -1,0 +1,9 @@
+<div class="main">
+    <div class="itemDiv" *ngFor="let item of fashion">
+        <p><img class="image" src="{{item.image}}" alt=""></p>
+        <p>{{item.name}}</p>
+        <p>{{item.description}}</p>
+        <p>{{item.price | currency:'Ksh '}}</p>
+        <button>Add to Cart</button>
+    </div>
+</div>

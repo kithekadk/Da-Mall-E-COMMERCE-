@@ -1,0 +1,12 @@
+<div class="main"  *ngIf="jewellery.length; div2">
+    <div class="itemDiv" *ngFor="let item of jewellery">
+        <p><img class="image" src="{{item.image}}" alt=""></p>
+        <p>{{item.name}}</p>
+        <p>{{item.description}}</p>
+        <p>{{item.price | currency:'Ksh '}}</p>
+        <button>Add to Cart</button>
+    </div>
+</div>
+<ng-template #div2>
+    <h2>Out of Jewellery stock</h2>
+</ng-template>
