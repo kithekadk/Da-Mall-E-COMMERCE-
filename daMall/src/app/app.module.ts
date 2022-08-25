@@ -8,6 +8,9 @@ import { DisplayComponent } from './display/display.component';
 import { ElectronicsComponent } from './display/electronics/electronics.component';
 import { FashionComponent } from './display/fashion/fashion.component';
 import { JewelleryComponent } from './display/jewellery/jewellery.component';
+import { AddProductComponent } from './admin/add-product/add-product.component';
+import { LoginComponent } from './admin/login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,14 @@ import { JewelleryComponent } from './display/jewellery/jewellery.component';
     DisplayComponent,
     ElectronicsComponent,
     FashionComponent,
-    JewelleryComponent
+    JewelleryComponent,
+    AddProductComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

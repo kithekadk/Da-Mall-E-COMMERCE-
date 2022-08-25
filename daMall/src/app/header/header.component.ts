@@ -27,4 +27,8 @@ export class HeaderComponent implements OnInit {
   getFashion(){
     this.router.navigate(['fashion'] , {relativeTo: this.route})
   }
+
+  login(){
+    this.router.navigate(['login'] , {relativeTo: this.route})
+  }
 }
