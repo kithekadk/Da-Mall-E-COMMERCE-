@@ -16,7 +16,6 @@ export class ProductsService {
 
   constructor() { }
 
-
 Products: product[]=[
   {
     name: 'Luke Skywalker',

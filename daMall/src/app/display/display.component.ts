@@ -13,6 +13,7 @@ export class DisplayComponent implements OnInit {
   ngOnInit(): void {
     this.Products = this.productService.getProducts()
   }
+filter=''
 Products!:product[]
 
 

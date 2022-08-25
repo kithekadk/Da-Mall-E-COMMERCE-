@@ -1,35 +1,35 @@
 <div>
     <div>
-        <form action="">
+        <form [formGroup]="form" (ngSubmit)="addProduct()">
             <div>
                 <label for="Productname">Product Name</label><br>
-                <input type="text" name="ProductName" id="ProductName" placeholder="Product Name" class="form-control" /><br>
+                <input type="text" formControlName="name" id="ProductName" placeholder="Product Name" class="form-control" /><br>
             </div>
             <div>
                 <label for="Description">Description</label><br>
-                <input type="text" name="Description" id="Description" placeholder="Description" class="form-control" /><br>
+                <input type="text" formControlName="description" id="Description" placeholder="Description" class="form-control" /><br>
             </div>
             <div>
                 <label for="Category">Category</label><br>
-                <select>
+                <select formControlName="category">
                     <option *ngFor="let option of Category">{{option}}</option>
                 </select>
             </div>
             <div>
                 <label for="Price">Price</label><br>
-                <input type="number" name="Price" id="Price" placeholder="Price" class="form-control" /><br>
+                <input type="number" formControlName="price" id="Price" placeholder="Price" class="form-control" /><br>
             </div>
 
             <div>
                 <label for="Image url">Image</label><br>
-                <input type="text" name="imgurl" id="imgurl" placeholder="image url" class="form-control" /><br>
+                <input type="text" formControlName="image" id="imgurl" placeholder="image url" class="form-control" /><br>
             </div>
             <div>
                 <label for="Quantity">Quantity</label><br>
-                <input type="text" name="Quantity" id="Quantity" placeholder="Quantity" class="form-control" /><br>
+                <input type="text" formControlName="quantity" id="Quantity" placeholder="Quantity" class="form-control" /><br>
             </div>
             <div>
-                <button type="submit" (click)="addProduct()">Add New</button>
+                <button type="button" (click)="addProduct()">Add New</button>
             </div>
         </form>
     </div>

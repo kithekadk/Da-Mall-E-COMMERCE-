@@ -10,7 +10,8 @@ import { FashionComponent } from './display/fashion/fashion.component';
 import { JewelleryComponent } from './display/jewellery/jewellery.component';
 import { AddProductComponent } from './admin/add-product/add-product.component';
 import { LoginComponent } from './admin/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -21,12 +22,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     FashionComponent,
     JewelleryComponent,
     AddProductComponent,
-    LoginComponent
+    LoginComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

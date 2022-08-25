@@ -13,10 +13,12 @@
     align-items: center;
     justify-content: center;
     width: 25vw;
-    background-color: rgb(30, 162, 206);
+    background-color: blueviolet;
     padding: 20px;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
+    border-radius: 10px;
+    color: white;
 }
 
 input{

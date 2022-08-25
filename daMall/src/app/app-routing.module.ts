@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AddProductComponent } from './admin/add-product/add-product.component';
 import { LoginComponent } from './admin/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 import { DisplayComponent } from './display/display.component';
 import { ElectronicsComponent } from './display/electronics/electronics.component';
@@ -16,8 +18,10 @@ const routes: Routes = [
       {path: 'electronics', component: ElectronicsComponent},
       {path: 'fashion', component: FashionComponent},
       {path: 'jewellery', component: JewelleryComponent},
-      {path: 'login', component: LoginComponent}
+      {path: 'login', component: LoginComponent},
+      {path:'addProduct', canActivate: [AuthGuard] ,component: AddProductComponent}
     ]},
+    
 ];
 
 @NgModule({

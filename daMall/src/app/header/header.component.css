@@ -31,7 +31,7 @@
     text-align: center;
     gap: 3px;
 }
-.column a{
+a{
     text-decoration: none;
     cursor: pointer;
     color: blue
