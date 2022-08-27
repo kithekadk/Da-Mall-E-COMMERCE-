@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { product } from '../services/products.service';
+import { ApiService } from '../services/api.service';
+import { CartService, item } from '../services/cart.service';
+import { ProductsService } from '../services/products.service';
 
 @Component({
   selector: 'app-header',
@@ -10,37 +12,37 @@ import { product } from '../services/products.service';
 })
 export class HeaderComponent implements OnInit {
 
-items!: product[]
 
-  constructor(private router:Router, private route:ActivatedRoute,public  auth:AuthService) { }
 
-  filter=''
-  ngOnInit(): void {
-    
+  constructor(private router:Router, private route:ActivatedRoute,public  auth:AuthService,
+              private productService: ProductsService, private api:ApiService,
+              private cartService:CartService) { }
+
+  // filter=''
+  items!: item[];
+  product=''
+  totalItems=0
+
+  Activate(){
+    this.api.activate.emit(this.product)
   }
-  allProducts(){
-    this.router.navigate(['allProducts'] , {relativeTo: this.route})
+
+  ngOnInit(): void {
+    this.cartService.getCartItem().subscribe(res=>{
+      this.totalItems = res.length
+    })
   }
   
-  getElectronics(){
-    this.router.navigate(['electronics'] , {relativeTo: this.route})
-  }
-
-  getJewellery(){
-    this.router.navigate(['jewellery'] , {relativeTo: this.route})
-  }
-  getFashion(){
-    this.router.navigate(['fashion'] , {relativeTo: this.route})
+  toCart(){
+    this.router.navigate(['home/cart'])
   }
 
   login(){
-    this.router.navigate(['login'] , {relativeTo: this.route})
+    this.router.navigate(['home/login'])
   }
   logout(){
     localStorage.clear()
     this.router.navigate(['home/allProducts'])
   }
-  addProduct(){
-    this.router.navigate(['addProduct'] , {relativeTo: this.route})
-  }
+ 
 }

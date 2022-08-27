@@ -1,6 +1,6 @@
 <div class="main"  *ngIf="jewellery.length; div2">
     <div class="itemDiv" *ngFor="let item of jewellery">
-        <p><img class="image" src="{{item.image}}" alt=""></p>
+        <img class="image" src="{{item.image}}" alt="">
         <p>{{item.name}}</p>
         <p>{{item.description}}</p>
         <p>{{item.price | currency:'Ksh '}}</p>

@@ -12,6 +12,10 @@ import { AddProductComponent } from './admin/add-product/add-product.component';
 import { LoginComponent } from './admin/login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchPipe } from './pipes/search.pipe';
+import {HttpClientModule} from '@angular/common/http';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { CartComponent } from './cart/cart.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component'
 
 @NgModule({
   declarations: [
@@ -23,13 +27,17 @@ import { SearchPipe } from './pipes/search.pipe';
     JewelleryComponent,
     AddProductComponent,
     LoginComponent,
-    SearchPipe
+    SearchPipe,
+    ShortenPipe,
+    CartComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

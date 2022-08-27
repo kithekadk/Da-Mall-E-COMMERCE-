@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { item } from '../services/cart.service';
 import { product } from '../services/products.service';
 
 @Pipe({
@@ -6,11 +7,13 @@ import { product } from '../services/products.service';
 })
 export class SearchPipe implements PipeTransform {
 
-  transform(value: product[], description: string): product[] {
+  transform(value: item[], description: string): item[] {
     if (value.length === 0 || description === ''){
-      return value;
+      
+      return value
     }
-    const filtered : product[]=[]
+    const filtered : item[]=[]
+
     for(let item of value){
       if (item.description.toLowerCase().includes(description.toLowerCase())){
         filtered.push(item);

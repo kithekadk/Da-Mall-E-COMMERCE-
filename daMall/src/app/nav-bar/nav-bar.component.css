@@ -1,23 +1,12 @@
 .header{
-    background-color: blueviolet;
-    justify-content: space-between;
-    align-items: center;
-    color: white;
-}
-.row input{
-    padding:7px;
-    border: none;
-    border-radius: 5px;
-    width:25vw;
-}
-.header, .row{
     display: flex;
-    
+    justify-content: center;
 }
 .header div, .row div{
     padding:10px;
     
 }
+
 .row2{
     display:flex;
     justify-content: center;
@@ -46,13 +35,4 @@ a:hover{
     width:15vh;
     height:12vh;
     border-radius: 10px;
-}
-
-.search-icon{
-    position: absolute;
-    z-index: 10;
-    right: 62%;
-    top: 35px;
-    color: blueviolet;
-    cursor: pointer;
 }

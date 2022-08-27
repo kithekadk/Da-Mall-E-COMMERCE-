@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { product, ProductsService } from '../services/products.service';
+import { ApiService } from '../services/api.service';
+import { CartService, item } from '../services/cart.service';
+
 
 @Component({
   selector: 'app-display',
@@ -8,17 +10,30 @@ import { product, ProductsService } from '../services/products.service';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor( private productService:ProductsService) { }
+  constructor(private api:ApiService, private cartService:CartService) { }
+
+Products!: item[]
+filter=''
+
+active=true
 
   ngOnInit(): void {
-    this.Products = this.productService.getProducts()
+      this.api.getProduct().subscribe(res=>{
+      this.Products = res;
+
+      this.Products.forEach((el)=>{
+        Object.assign(el, {quantity:1, total:el.price})
+      })
+
+      this.api.activate.subscribe(val=>{
+        this.filter = val
+
+        
+      })
+    })
   }
-filter=''
-Products!:product[]
 
-
-  
-
-
-
+  addToCart(item:item){
+    this.cartService.addToCartList(item)
+  }
 }

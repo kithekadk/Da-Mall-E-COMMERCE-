@@ -1,9 +1,11 @@
-<div class="main">
-   <div class="itemDiv" *ngFor="let item of Products | search:filter; let i=index">
-        <p><img class="image" src="{{item.image}}" alt=""></p>
-        <p>{{item.name}}</p>
-        <p>{{item.description }}</p>
-        <p>{{item.price | currency:'Ksh '}}</p>
-        <button>Add to Cart</button>
+<input type="text" [(ngModel)]="filter" placeholder="Search item">
+<div class="main" *ngIf="active">
+   <div class="itemDiv" *ngFor="let item of Products | search:filter">
+        <img class="image" src="{{item.image}}" alt="">
+        <p><strong>{{item.title | shorten}}</strong></p>
+        <p>{{item.description | shorten }}</p>
+        <p><strong>{{item.price | currency:'Ksh '}}</strong></p>
+        
+        <button (click)="addToCart(item)">Add to Cart</button>
    </div> 
 </div>

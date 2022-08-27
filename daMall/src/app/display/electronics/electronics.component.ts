@@ -12,9 +12,7 @@ export class ElectronicsComponent implements OnInit {
   constructor(private productService:ProductsService) { }
 
   ngOnInit(): void {
-    this.electronics = this.productService.getElectronic()
-    console.log(this.productService.getElectronic());
-    
+    this.electronics = this.productService.getElectronic()    
   }
 
 

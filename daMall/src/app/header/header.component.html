@@ -1,40 +1,33 @@
 <div class="header">
     <div class="row">
-        <div>Logo</div>
-        <div>Da-Mall</div>
-        <div><input type="text" [(ngModel)]='filter' placeholder="Search item"></div>
-        <div *ngFor="let item of items | search:filter; let i = index"></div>
+        <div>
+            <i style="font-size: 30px;" class="fas fa-shipping-fast">&nbsp;</i>
+            <strong style="font-size: 30px;">Da-Mall</strong>
+        </div>
+        
+        <div>
+            <input (input)="Activate()" type="text" placeholder="Search Item" [(ngModel)]="product">
+            <span class="fas fa-search search-icon"></span>
+        </div>
+       
 
     </div>
     <div class="row">
         
-        <div><a>CART</a></div>
-        <div><a (click)="login()" *ngIf="!auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Login</a></div>
+        <div (click)="toCart()"><i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+            <i class="badge bg-danger" style="background-color: red; padding:0px 3px">
+                <strong>{{totalItems}}</strong></i>
+        </div>
+        <div>
+            <a (click)="login()" *ngIf="!auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Login
+                <!-- <i style="font-size: 30px;" class="fa-solid fa-arrow-right-to-bracket"></i> -->
+            </a>
+        </div>
         <div><a (click)="logout()" *ngIf="auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Logout</a></div>
     </div>
 </div>
-<div class="row2">
-    <div class="column" *ngIf="auth.isAuthenticated()">
-        <img class="image" src="https://cdn.pixabay.com/photo/2014/09/19/08/23/symbol-451843__340.png" alt="">
-        <a (click)="addProduct()">Add Product</a>
-    </div>
-    <div class="column">
-        <img class="image" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
-        <a (click)="allProducts()">All Products</a>
-    </div>
-    <div class="column">
-        <img class="image" src="https://media.gettyimages.com/photos/designer-daily-supplies-shot-knolling-style-picture-id641229863?k=20&m=641229863&s=612x612&w=0&h=mJxEnqsVfHto3vacARZQtJdWEbCu6wts3seLFhqxIu4=" alt="">
-        <a (click)="getElectronics()">Electronics</a>
-    </div>
-    <div class="column">
-        <img class="image" src="https://images.unsplash.com/photo-1575202332411-b01fe9ace7a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
-        <a (click)="getFashion()">Fashion</a>
-    </div>
-    <div class="column">
-        <img class="image" src="https://media.gettyimages.com/photos/chinese-diamond-industry-picture-id520899210?k=20&m=520899210&s=612x612&w=0&h=n--YN5qrKUhMaY7EInMWCmBL0hkzkSRG_uzmwk1nzpM=" alt="">
-        <a (click)="getJewellery()">Jewellery</a>
-    </div>
-</div>
-<hr>
+
 
 <router-outlet></router-outlet>
+
+
