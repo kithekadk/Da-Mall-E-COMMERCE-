@@ -3,6 +3,8 @@
     justify-content: space-between;
     align-items: center;
     color: white;
+    position: fixed;
+    width: 100vw;
 }
 .row input{
     padding:7px;

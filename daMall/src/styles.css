@@ -14,6 +14,18 @@
     padding-left:20px;
     padding-right:20px;
 }
+.container1{
+    display: flex;
+    justify-content: center;
+    gap:30px;
+    text-align: center;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    padding-left:20px;
+    padding-right:20px;
+    width:100vw;
+    margin-top: 150px;
+}
 .itemDiv{
     width: 18vw;
     padding: 10px;
@@ -22,6 +34,7 @@
     
 }
 .itemDiv p{
+    
     margin: 10px 20px;
     text-align: left;
 }

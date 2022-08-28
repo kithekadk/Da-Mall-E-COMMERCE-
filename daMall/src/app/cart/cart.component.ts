@@ -21,7 +21,7 @@ export class CartComponent implements OnInit {
   }
 
   allProducts(){
-    this.router.navigate(['home/nav/allProducts']);
+    this.router.navigate(['home/allProducts']);
   }
 
   removeItem(index: number){

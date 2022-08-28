@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 import { ApiService } from '../services/api.service';
 import { CartService, item } from '../services/cart.service';
 
@@ -10,9 +12,10 @@ import { CartService, item } from '../services/cart.service';
 })
 export class DisplayComponent implements OnInit {
 
-  constructor(private api:ApiService, private cartService:CartService) { }
+  constructor(private api:ApiService, private cartService:CartService, public auth:AuthService, private router:Router) { }
 
 Products!: item[]
+Products2!: item[]
 filter=''
 
 active=true
@@ -20,8 +23,13 @@ active=true
   ngOnInit(): void {
       this.api.getProduct().subscribe(res=>{
       this.Products = res;
+      this.Products2 = res;
 
       this.Products.forEach((el)=>{
+        if(el.category==="women's clothing" || el.category==="men's clothing"){
+          el.category = "fashion"
+        }
+
         Object.assign(el, {quantity:1, total:el.price})
       })
 
@@ -33,7 +41,20 @@ active=true
     })
   }
 
+  addProduct(){
+    this.router.navigate(['addProduct'])
+  }
+
   addToCart(item:item){
     this.cartService.addToCartList(item)
+  }
+
+  filterCategory(category: string){
+    this.Products2 = this.Products.filter((el: item)=>{
+      let items = (el.category== category || category== '')
+      return items
+        
+    })
+    return this.Products2
   }
 }

@@ -1,33 +1,33 @@
-<div class="header">
-    <div class="row">
-        <div>
-            <i style="font-size: 30px;" class="fas fa-shipping-fast">&nbsp;</i>
-            <strong style="font-size: 30px;">Da-Mall</strong>
+<div>
+    <div class="header">
+        <div class="row">
+            <div>
+                <i style="font-size: 30px;" class="fas fa-shipping-fast">&nbsp;</i>
+                <strong style="font-size: 30px;">Da-Mall</strong>
+            </div>
+            
+            <div>
+                <input (input)="Activate()" type="text" placeholder="Search Item" [(ngModel)]="product">
+                <span class="fas fa-search search-icon"></span>
+            </div>
+           
+    
         </div>
-        
-        <div>
-            <input (input)="Activate()" type="text" placeholder="Search Item" [(ngModel)]="product">
-            <span class="fas fa-search search-icon"></span>
+        <div class="row">
+            
+            <div (click)="toCart()"><i style="font-size: 30px;" class="fas fa-cart-plus"></i>
+                <i class="badge bg-danger" style="background-color: red; padding:0px 3px">
+                    <strong>{{totalItems}}</strong></i>
+            </div>
+            <div>
+                <a (click)="login()" *ngIf="!auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Login
+                    <!-- <i style="font-size: 30px;" class="fa-solid fa-arrow-right-to-bracket"></i> -->
+                </a>
+            </div>
+            <div><a (click)="logout()" *ngIf="auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Logout</a></div>
         </div>
-       
-
-    </div>
-    <div class="row">
-        
-        <div (click)="toCart()"><i style="font-size: 30px;" class="fas fa-cart-plus"></i>
-            <i class="badge bg-danger" style="background-color: red; padding:0px 3px">
-                <strong>{{totalItems}}</strong></i>
-        </div>
-        <div>
-            <a (click)="login()" *ngIf="!auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Login
-                <!-- <i style="font-size: 30px;" class="fa-solid fa-arrow-right-to-bracket"></i> -->
-            </a>
-        </div>
-        <div><a (click)="logout()" *ngIf="auth.isAuthenticated()" [ngStyle]="{'color':'white'}">Logout</a></div>
     </div>
 </div>
-
-
 <router-outlet></router-outlet>
 
 
