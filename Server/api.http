@@ -1,0 +1,24 @@
+
+POST http://localhost:4300/product/create
+Content-Type: application/json
+
+{
+    "TITLE":"new",
+    "PRICE": "5000",
+    "DESCRIPTION" :"flat screen television",
+    "CATEGORY" :"electronics",
+    "IMAGE": "https://cdn.pixabay.com/photo/2016/03/21/21/37/tv-1271650__341.png",
+    "QUANTITY": "2"
+}
+
+###
+POST http://localhost:4300/product/all
+Content-Type: application/json
+
+###
+POST http://localhost:4300/product/delete
+Content-Type: application/json
+
+{
+    "ID":"9"
+}

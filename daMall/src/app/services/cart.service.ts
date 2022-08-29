@@ -3,17 +3,14 @@ import { BehaviorSubject } from 'rxjs';
 
 
 export interface item{
-  id:number
-  title:string
-  price: number
-  description :string
-  category :string
-  image:string
-  quantity: number
-  rating:{
-    rate:number
-    count:number
-  }
+  ID:number
+  TITLE:string
+  PRICE: number
+  DESCRIPTION :string
+  CATEGORY :string
+  IMAGE:string
+  QUANTITY: number
+  RATING:number
 }
 @Injectable({
   providedIn: 'root'
@@ -45,7 +42,7 @@ export class CartService {
   getTotalPrice(){
     let grandTotal=0
     this.cartList.map((el: item)=>{
-      grandTotal += el.price
+      grandTotal += el.PRICE
     })
     return grandTotal
   }

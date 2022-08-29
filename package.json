@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@types/mssql": "^8.1.1",
+    "mssql": "^9.0.1"
+  }
+}

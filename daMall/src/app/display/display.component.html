@@ -4,41 +4,39 @@
 <div class="header">
    <div class="row2">
        <div class="column" *ngIf="auth.isAuthenticated()">
-           <img class="image" src="https://cdn.pixabay.com/photo/2014/09/19/08/23/symbol-451843__340.png" alt="">
+           <img class="navImage" src="https://cdn.pixabay.com/photo/2014/09/19/08/23/symbol-451843__340.png" alt="">
            <a (click)="addProduct()">Add Product</a>
        </div>
        <div class="column">
-           <img class="image" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
+           <img class="navImage" src="https://images.unsplash.com/photo-1511556820780-d912e42b4980?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8cHJvZHVjdHN8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60" alt="">
            <a (click)="filterCategory('')">All Products</a>
        </div>
        <div class="column">
-           <img class="image" src="https://media.gettyimages.com/photos/designer-daily-supplies-shot-knolling-style-picture-id641229863?k=20&m=641229863&s=612x612&w=0&h=mJxEnqsVfHto3vacARZQtJdWEbCu6wts3seLFhqxIu4=" alt="">
+           <img class="navImage" src="https://media.gettyimages.com/photos/designer-daily-supplies-shot-knolling-style-picture-id641229863?k=20&m=641229863&s=612x612&w=0&h=mJxEnqsVfHto3vacARZQtJdWEbCu6wts3seLFhqxIu4=" alt="">
            <a (click)="filterCategory('electronics')">Electronics</a>
        </div>
        <div class="column">
-           <img class="image" src="https://images.unsplash.com/photo-1575202332411-b01fe9ace7a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
+           <img class="navImage" src="https://images.unsplash.com/photo-1575202332411-b01fe9ace7a8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTQ0fHxmYXNoaW9ufGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" alt="">
            <a (click)="filterCategory('fashion')">Fashion</a>
        </div>
        <div class="column">
-           <img class="image" src="https://media.gettyimages.com/photos/chinese-diamond-industry-picture-id520899210?k=20&m=520899210&s=612x612&w=0&h=n--YN5qrKUhMaY7EInMWCmBL0hkzkSRG_uzmwk1nzpM=" alt="">
+           <img class="navImage" src="https://media.gettyimages.com/photos/chinese-diamond-industry-picture-id520899210?k=20&m=520899210&s=612x612&w=0&h=n--YN5qrKUhMaY7EInMWCmBL0hkzkSRG_uzmwk1nzpM=" alt="">
            <a (click)="filterCategory('jewelery')">Jewellery</a>
        </div>
    </div>
 </div>
-<!-- <button (click)="filterCategory('')">All Products</button>
-<button (click)="filterCategory('electronics')">Electronics</button>
-<button (click)="filterCategory('fashion')">Fashion</button>
-<button (click)="filterCategory('jewelery')">Jewelery</button> -->
+
 <div class="main" *ngIf="active">
 
 <div class="container1">
-   <div class="itemDiv" *ngFor="let item of Products2 | search:filter">
-      <img class="image" src="{{item.image}}" alt="">
-      <p><strong>{{item.title | shorten}}</strong></p>
-      <p>{{item.description | shorten }}</p>
-      <p><strong>{{item.price | currency:'Ksh '}}</strong></p>
+   <div class="itemDiv" *ngFor="let item of Products2 | search:filter; let i = index">
+      <img class="image" src="{{item.IMAGE}}" alt="">
+      <p><strong>{{item.TITLE | shorten}}</strong></p>
+      <p>{{item.DESCRIPTION | shorten }}</p>
+      <p><strong>{{item.PRICE | currency:'Ksh '}}</strong></p>
       
       <button (click)="addToCart(item)">Add to Cart</button>
+      <button *ngIf="auth.isAuthenticated()">Delete Item</button>
  </div> 
 </div>
 </div>

@@ -22,15 +22,16 @@ active=true
 
   ngOnInit(): void {
       this.api.getProduct().subscribe(res=>{
+        
       this.Products = res;
       this.Products2 = res;
 
       this.Products.forEach((el)=>{
-        if(el.category==="women's clothing" || el.category==="men's clothing"){
-          el.category = "fashion"
+        if(el.CATEGORY==="women's clothing" || el.CATEGORY==="men's clothing"){
+          el.CATEGORY = "fashion"
         }
 
-        Object.assign(el, {quantity:1, total:el.price})
+        Object.assign(el, {quantity:1, total:el.PRICE})
       })
 
       this.api.activate.subscribe(val=>{
@@ -42,7 +43,7 @@ active=true
   }
 
   addProduct(){
-    this.router.navigate(['addProduct'])
+    this.router.navigate(['home/addProduct'])
   }
 
   addToCart(item:item){
@@ -51,7 +52,7 @@ active=true
 
   filterCategory(category: string){
     this.Products2 = this.Products.filter((el: item)=>{
-      let items = (el.category== category || category== '')
+      let items = (el.CATEGORY== category || category== '')
       return items
         
     })
