@@ -5,6 +5,7 @@
     color: white;
     position: fixed;
     width: 100vw;
+    top: 0;
 }
 .row input{
     padding:7px;

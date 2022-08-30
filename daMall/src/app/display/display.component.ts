@@ -20,9 +20,12 @@ filter=''
 
 active=true
 
-  ngOnInit(): void {
-      this.api.getProduct().subscribe(res=>{
-        
+    ngOnInit(): void {
+        this.getProducts()
+    }
+  
+  getProducts(){
+    this.api.getProduct().subscribe(res=>{   
       this.Products = res;
       this.Products2 = res;
 
@@ -30,24 +33,32 @@ active=true
         if(el.CATEGORY==="women's clothing" || el.CATEGORY==="men's clothing"){
           el.CATEGORY = "fashion"
         }
-
         Object.assign(el, {quantity:1, total:el.PRICE})
       })
-
       this.api.activate.subscribe(val=>{
-        this.filter = val
-
-        
+      this.filter = val  
       })
     })
   }
 
+  
   addProduct(){
     this.router.navigate(['home/addProduct'])
   }
 
   addToCart(item:item){
     this.cartService.addToCartList(item)
+  }
+
+  delProduct(TITLE:string){
+    let itemName = TITLE
+    this.api.deleteProduct(itemName).subscribe(res=>{
+      console.log(res);
+      console.log(this.Products2);
+      console.log(itemName);
+      
+        
+    })
   }
 
   filterCategory(category: string){

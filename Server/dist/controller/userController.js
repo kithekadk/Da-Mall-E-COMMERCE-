@@ -32,51 +32,21 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.deleteProduct = exports.getProducts = exports.createProduct = void 0;
+exports.newUser = void 0;
 const mssql_1 = __importStar(require("mssql"));
 const config_1 = require("../config/config");
-const createProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+const newUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        let { TITLE, PRICE, DESCRIPTION, CATEGORY, IMAGE, QUANTITY, RATING } = req.body;
+        let { EMAIL, FIRSTNAME, LASTNAME, PASSWORD, CONFIRM_PWD } = req.body;
         const pool = yield mssql_1.default.connect(config_1.sqlConfig);
         yield pool.request()
-            .input('TITLE', mssql_1.default.VarChar, TITLE)
-            .input('PRICE', mssql_1.default.Numeric, PRICE)
-            .input('DESCRIPTION', mssql_1.default.VarChar, DESCRIPTION)
-            .input('CATEGORY', mssql_1.default.VarChar, CATEGORY)
-            .input('IMAGE', mssql_1.default.VarChar, IMAGE)
-            .input('QUANTITY', mssql_1.default.Numeric, QUANTITY)
-            .execute('AddProduct');
-        return res.json({ message: "Product added successfully" });
-    }
-    catch (error) {
-        if (error instanceof mssql_1.RequestError) {
-            res.status(500).json({
-                message: error.message
-            });
-        }
-    }
-});
-exports.createProduct = createProduct;
-const getProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const pool = yield mssql_1.default.connect(config_1.sqlConfig);
-        const products = (yield pool.request()
-            .execute('getProducts')).recordset;
-        return res.json(products);
-    }
-    catch (error) {
-    }
-});
-exports.getProducts = getProducts;
-const deleteProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        let { TITLE } = req.body;
-        const pool = yield mssql_1.default.connect(config_1.sqlConfig);
-        yield pool.request()
-            .input('TITLE', mssql_1.default.VarChar, TITLE)
-            .execute('deleteProduct');
-        return res.json({ message: "Product deleted successfully" });
+            .input('EMAIL', mssql_1.default.VarChar, EMAIL)
+            .input('FIRSTNAME', mssql_1.default.VarChar, FIRSTNAME)
+            .input('LASTNAME', mssql_1.default.VarChar, LASTNAME)
+            .input('PASSWORD', mssql_1.default.VarChar, PASSWORD)
+            .input('CONFIRM_PWD', mssql_1.default.VarChar, CONFIRM_PWD)
+            .execute('createNewUser');
+        return res.json({ message: 'User created successfully...' });
     }
     catch (error) {
         if (error instanceof mssql_1.RequestError) {
@@ -86,4 +56,4 @@ const deleteProduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
         }
     }
 });
-exports.deleteProduct = deleteProduct;
+exports.newUser = newUser;

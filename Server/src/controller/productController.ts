@@ -44,16 +44,21 @@ export const getProducts= async(req: CustomProduct, res:Response)=>{
 
 export const deleteProduct = async (req: CustomProduct, res:Response)=>{
     try {
-        let {ID}=req.body
+        let {TITLE} =req.body
         const pool = await mssql.connect(sqlConfig)
 
         await pool.request()
-        .input('ID', mssql.VarChar, ID)
+        .input('TITLE', mssql.VarChar, TITLE)
         .execute('deleteProduct')
 
         return res.json({message: "Product deleted successfully"})
+
     } catch (error) {
-        console.log(error);
+        if(error instanceof RequestError){
+            res.json({
+                message: error.message
+            })
+        }
         
     }
 }

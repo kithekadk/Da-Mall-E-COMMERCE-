@@ -11,7 +11,9 @@ export class ApiService {
 
   constructor(private http:HttpClient) { }
 
+activate= new EventEmitter<string>()
 errorMsg : string=''
+
   getProduct(){
     return this.http.get<item[]>('http://localhost:4300/product/all')
     .pipe(map((res)=>{
@@ -22,12 +24,14 @@ errorMsg : string=''
     }))
   }
   addProduct(product:item){
-    
     return this.http.post<item>('http://localhost:4300/product/create', product)
     }
 
-  activate= new EventEmitter<string>()
+  deleteProduct(itemName:string){
+    return this.http.post<item>('http://localhost:4300/product/delete', {itemName})
+  }
 
 
 
+  
 }

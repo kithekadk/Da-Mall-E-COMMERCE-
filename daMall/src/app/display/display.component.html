@@ -36,7 +36,7 @@
       <p><strong>{{item.PRICE | currency:'Ksh '}}</strong></p>
       
       <button (click)="addToCart(item)">Add to Cart</button>
-      <button *ngIf="auth.isAuthenticated()">Delete Item</button>
+      <button *ngIf="auth.isAuthenticated()" (click)="delProduct(item.TITLE)">Delete Item</button>
  </div> 
 </div>
 </div>

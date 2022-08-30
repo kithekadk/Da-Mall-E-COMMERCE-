@@ -29,10 +29,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importStar(require("express"));
 const router_1 = __importDefault(require("./routes/router"));
 const cors_1 = __importDefault(require("cors"));
+const userRouter_1 = __importDefault(require("./routes/userRouter/userRouter"));
 const app = (0, express_1.default)();
 app.use((0, express_1.json)());
 app.use((0, cors_1.default)());
 app.use('/product', router_1.default);
+app.use('/user', userRouter_1.default);
 app.use((err, req, res, next) => {
     res.json({ message: err.message });
 });

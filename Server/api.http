@@ -20,5 +20,18 @@ POST http://localhost:4300/product/delete
 Content-Type: application/json
 
 {
-    "ID":"9"
+    "TITLE":"tv"
+}
+
+
+###
+POST http://localhost:4300/user/create
+Content-Type: application/json
+
+{
+    "EMAIL": "abc@gmail.com",
+    "FIRSTNAME": "dan",
+    "LASTNAME": "kitheka",
+    "PASSWORD": "12345678",
+    "CONFIRM_PWD": "12345678"
 }
